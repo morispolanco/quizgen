@@ -14,7 +14,7 @@ def generar_preguntas(tema, n):
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=prompt,
-            max_tokens=1024,
+            max_tokens=2024,
             n=1,
             stop=None,
             temperature=0.5,
