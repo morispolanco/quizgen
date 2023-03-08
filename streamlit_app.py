@@ -12,9 +12,9 @@ def generar_preguntas(tema, n):
     for i in range(n):
         prompt = f"Genera una pregunta de opción múltiple sobre {tema}"
         response = openai.Completion.create(
-            engine="text-davinci-003",
+            engine="davinci",
             prompt=prompt,
-            max_tokens=2024,
+            max_tokens=1024,
             n=1,
             stop=None,
             temperature=0.5,
@@ -46,7 +46,7 @@ def generar_examen(tema, n):
             temperature=0.5,
         )
         respuesta_correcta = response.choices[0].text.strip()
-        opciones = generar_opciones(respuesta_correcta, response.choices[0].options)
+        opciones = generar_opciones(respuesta_correcta, response.choices[0].text.split('\n'))
         examen.append({
             "pregunta": pregunta,
             "opciones": opciones,
