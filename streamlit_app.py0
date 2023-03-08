@@ -40,9 +40,9 @@ def generar_examen(tema, n):
     for pregunta in preguntas:
         prompt = f"Genera opciones de respuesta para la siguiente pregunta de opción múltiple: {pregunta}"
         response = openai.Completion.create(
-            engine="davinci",
+            engine="text-davinci-003",
             prompt=prompt,
-            max_tokens=1024,
+            max_tokens=2024,
             n=1,
             stop=None,
             temperature=0.5,
