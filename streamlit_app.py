@@ -3,6 +3,9 @@ import streamlit as st
 import random
 import os
 
+openai.api_key = os.getenv('OPENAI_API_KEY')
+
+
 # Función para generar preguntas utilizando GPT-3
 def generar_preguntas(tema, n):
     preguntas = []
