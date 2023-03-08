@@ -3,9 +3,6 @@ import streamlit as st
 import random
 import os
 
-# Configurar la conexión a OpenAI
-openai.api_key = os.getenv('OPENAI_API_KEY')
-
 # Función para generar preguntas utilizando GPT-3
 def generar_preguntas(tema, n):
     preguntas = []
@@ -25,6 +22,8 @@ def generar_preguntas(tema, n):
 
 # Función para generar opciones de respuesta aleatorias
 def generar_opciones(respuesta_correcta, opciones):
+    if respuesta_correcta not in opciones:
+        opciones.append(respuesta_correcta)
     opciones.remove(respuesta_correcta)
     opciones = random.sample(opciones, 3)
     opciones.append(respuesta_correcta)
@@ -66,6 +65,7 @@ def mostrar_examen(examen):
         if respuesta_seleccionada == pregunta["respuesta_correcta"]:
             puntaje_total += 1
     st.write(f"Tu puntaje total es {puntaje_total}/{len(examen)}")
+
 
 # Interfaz de usuario con botón "Generar examen"
 st.title("Generador de exámenes de opción múltiple")
