@@ -6,8 +6,6 @@ import os
 # Configurar la conexión a OpenAI
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-openai.api_key = "your_api_key"
-
 # Función para generar preguntas utilizando GPT-3
 def generar_preguntas(tema, n):
     preguntas = []
