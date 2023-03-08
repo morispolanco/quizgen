@@ -12,7 +12,7 @@ def generar_preguntas(tema, n):
     for i in range(n):
         prompt = f"Genera una pregunta de opción múltiple sobre {tema}"
         response = openai.Completion.create(
-            engine="davinci",
+            engine="text-davinci-003",
             prompt=prompt,
             max_tokens=1024,
             n=1,
